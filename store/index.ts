@@ -1,19 +1,21 @@
 // store.ts
-import { dummyCustomers } from "@/lib/constants";
-import { create } from "zustand";
+import { dummyCustomers } from '@/lib/constants'
+import { create } from 'zustand'
 
 type Customer = {
-  name: string;
-  details: string;
-  photos: string[];
-};
+  name: string
+  title: string
+  address: string
+  details: string
+  photos: string[]
+}
 
 type Store = {
-  customers: Customer[];
-  selectedCustomer: Customer | null;
-  selectCustomer: (name: string) => void;
-  fetchCustomers: () => void;
-};
+  customers: Customer[]
+  selectedCustomer: Customer | null
+  selectCustomer: (name: string) => void
+  fetchCustomers: () => void
+}
 
 export const useStore = create<Store>((set) => ({
   customers: dummyCustomers,
@@ -27,4 +29,4 @@ export const useStore = create<Store>((set) => ({
   fetchCustomers: () => {
     // if you want to fetch data from an API
   },
-}));
+}))
